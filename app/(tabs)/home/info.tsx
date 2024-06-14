@@ -1,12 +1,13 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Ionicons, Entypo } from "@expo/vector-icons";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useNavigation } from "expo-router";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { SimpleLineIcons } from '@expo/vector-icons';
 
 const info = () => {
   const params = useLocalSearchParams();
+  const nav=useNavigation();
   return (
     <View style={{ flex: 1, backgroundColor: "white", padding: 10 }}>
       <View
@@ -16,7 +17,7 @@ const info = () => {
           justifyContent: "space-between",
         }}
       >
-        <Ionicons name="arrow-back" size={24} color="black" />
+        <Ionicons onPress={()=> nav.goBack()} name="arrow-back" size={24} color="black" />
         <Entypo name="dots-three-vertical" size={24} color="black" />
       </View>
 
